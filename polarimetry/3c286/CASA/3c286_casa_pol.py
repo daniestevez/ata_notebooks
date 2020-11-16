@@ -28,8 +28,7 @@ for spw in range(6):
             solint = 'inf', combine = 'scan',
             preavg = 200,
             smodel = [1, 0, 1, 0], gaintype = 'XY+QU',
-            minblperant = 1, spw = str(spw),
-            gaintable = ['3c286_cal_norm.Kcross0'])
+            minblperant = 1, spw = str(spw))
 
 # Correct the ambiguous phase determination and construct source
 # Stokes parameters model
@@ -47,8 +46,7 @@ for spw in range(6):
                 gaintype = 'G', calmode = 'a',
                 minblperant = 1, parang = True,
                 preavg = 10, spw = str(spw),
-                append = True,
-                gaintable = ['3c286_cal_norm.Kcross0'])
+                append = True)
 
 # D-term calibration
 rmtables('3c286_cal_norm.D0')
@@ -58,14 +56,14 @@ for spw in range(6):
                smodel = S[spw], spw = str(spw),
                preavg = 200, poltype = 'Dlls',
                refant = '',
-               gaintable = ['3c286_cal_norm.G1', '3c286_cal_norm.Kcross0',
+               gaintable = ['3c286_cal_norm.G1',
                                 '3c286_cal_norm.spw{}.xy0'.format(spw)],
                append = True)
 
 # Apply calibrations
 for spw in range(6):
     applycal(vis = vis,
-                gaintable = ['3c286_cal_norm.G1', '3c286_cal_norm.Kcross0',
+                gaintable = ['3c286_cal_norm.G1',
                              '3c286_cal_norm.D0',
                              '3c286_cal_norm.spw{}.xy0'.format(spw)],
                  spw = str(spw),
