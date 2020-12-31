@@ -1,0 +1,699 @@
+options:
+  parameters:
+    author: Daniel Estevez
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: no_gui
+    hier_block_src_path: '.:'
+    id: ce5_480k_phase
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: run
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Chang'e 5 telemetry decoder
+    window_size: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '480000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [208, 12.0]
+    rotation: 0
+    state: enabled
+- name: analog_pll_refout_cc_0
+  id: analog_pll_refout_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    max_freq: 2*math.pi
+    maxoutbuf: '0'
+    min_freq: -2*math.pi
+    minoutbuf: '0'
+    w: 2*math.pi*pll_bw/samp_rate
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [600, 196.0]
+    rotation: 0
+    state: true
+- name: analog_pll_refout_cc_0_0
+  id: analog_pll_refout_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    max_freq: 2*math.pi
+    maxoutbuf: '0'
+    min_freq: -2*math.pi
+    minoutbuf: '0'
+    w: 2*math.pi*pll_bw/samp_rate
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [600, 340.0]
+    rotation: 0
+    state: true
+- name: analog_pll_refout_cc_0_0_0
+  id: analog_pll_refout_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    max_freq: 2*math.pi
+    maxoutbuf: '0'
+    min_freq: -2*math.pi
+    minoutbuf: '0'
+    w: 2*math.pi*pll_bw/samp_rate
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [616, 484.0]
+    rotation: 0
+    state: true
+- name: analog_pll_refout_cc_0_0_0_0
+  id: analog_pll_refout_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    max_freq: 2*math.pi
+    maxoutbuf: '0'
+    min_freq: -2*math.pi
+    minoutbuf: '0'
+    w: 2*math.pi*pll_bw/samp_rate
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [600, 612.0]
+    rotation: 0
+    state: true
+- name: analog_sig_source_x_0
+  id: analog_sig_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    amp: '1'
+    comment: ''
+    freq: freq_off
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    phase: '0'
+    samp_rate: samp_rate
+    type: complex
+    waveform: analog.GR_COS_WAVE
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [320, 12.0]
+    rotation: 0
+    state: true
+- name: basename
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: ''
+    type: str
+    value: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1056, 52.0]
+    rotation: 0
+    state: true
+- name: blocks_complex_to_arg_0
+  id: blocks_complex_to_arg
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [808, 216.0]
+    rotation: 0
+    state: true
+- name: blocks_complex_to_arg_0_0
+  id: blocks_complex_to_arg
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [808, 360.0]
+    rotation: 0
+    state: true
+- name: blocks_complex_to_arg_0_0_0
+  id: blocks_complex_to_arg
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [824, 504.0]
+    rotation: 0
+    state: true
+- name: blocks_complex_to_arg_0_0_0_0
+  id: blocks_complex_to_arg
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [808, 632.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_1
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: f'{basename}_phase_0x_{chan}'
+    type: float
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1112, 196.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_1_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: f'{basename}_phase_0y_{chan}'
+    type: float
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1112, 340.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_1_0_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: f'{basename}_phase_1x_{chan}'
+    type: float
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1128, 484.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_1_0_0_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: f'{basename}_phase_1y_{chan}'
+    type: float
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1112, 612.0]
+    rotation: 0
+    state: true
+- name: blocks_file_source_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: f'{basename}_0x_{chan}'
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: skip*samp_rate
+    repeat: 'False'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 180.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_source_0_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: f'{basename}_0y_{chan}'
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: skip*samp_rate
+    repeat: 'False'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 324.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_source_0_0_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: f'{basename}_1x_{chan}'
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: skip*samp_rate
+    repeat: 'False'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 460.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_source_0_0_0_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: f'{basename}_1y_{chan}'
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: skip*samp_rate
+    repeat: 'False'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 596.0]
+    rotation: 0
+    state: enabled
+- name: blocks_keep_one_in_n_0
+  id: blocks_keep_one_in_n
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    n: int(samp_rate*0.1)
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [968, 216.0]
+    rotation: 0
+    state: true
+- name: blocks_keep_one_in_n_0_0
+  id: blocks_keep_one_in_n
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    n: int(samp_rate*0.1)
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [968, 360.0]
+    rotation: 0
+    state: true
+- name: blocks_keep_one_in_n_0_0_0
+  id: blocks_keep_one_in_n
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    n: int(samp_rate*0.1)
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [984, 504.0]
+    rotation: 0
+    state: true
+- name: blocks_keep_one_in_n_0_0_0_0
+  id: blocks_keep_one_in_n
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    n: int(samp_rate*0.1)
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [968, 632.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_conjugate_cc_0
+  id: blocks_multiply_conjugate_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [400, 200.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_conjugate_cc_0_0
+  id: blocks_multiply_conjugate_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [400, 344.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_conjugate_cc_0_0_0
+  id: blocks_multiply_conjugate_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [408, 488.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_conjugate_cc_0_0_0_0
+  id: blocks_multiply_conjugate_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [408, 616.0]
+    rotation: 0
+    state: true
+- name: chan
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: ''
+    type: intx
+    value: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [912, 88.0]
+    rotation: 0
+    state: true
+- name: freq_off
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: ''
+    type: eng_float
+    value: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [688, 28.0]
+    rotation: 0
+    state: true
+- name: import_0
+  id: import
+  parameters:
+    alias: ''
+    comment: ''
+    imports: import math
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [824, 16.0]
+    rotation: 0
+    state: true
+- name: pll_bw
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: ''
+    type: eng_float
+    value: '100'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [800, 84.0]
+    rotation: 0
+    state: true
+- name: satellites_rms_agc_0
+  id: satellites_rms_agc
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha: 1e-2
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    reference: '1.0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [224, 204.0]
+    rotation: 0
+    state: true
+- name: satellites_rms_agc_0_0
+  id: satellites_rms_agc
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha: 1e-2
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    reference: '1.0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [224, 348.0]
+    rotation: 0
+    state: true
+- name: satellites_rms_agc_0_0_0
+  id: satellites_rms_agc
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha: 1e-2
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    reference: '1.0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [232, 484.0]
+    rotation: 0
+    state: true
+- name: satellites_rms_agc_0_0_0_0
+  id: satellites_rms_agc
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha: 1e-2
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    reference: '1.0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [232, 620.0]
+    rotation: 0
+    state: true
+- name: skip
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: ''
+    type: intx
+    value: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [576, 28.0]
+    rotation: 0
+    state: true
+
+connections:
+- [analog_pll_refout_cc_0, '0', blocks_complex_to_arg_0, '0']
+- [analog_pll_refout_cc_0_0, '0', blocks_complex_to_arg_0_0, '0']
+- [analog_pll_refout_cc_0_0_0, '0', blocks_complex_to_arg_0_0_0, '0']
+- [analog_pll_refout_cc_0_0_0_0, '0', blocks_complex_to_arg_0_0_0_0, '0']
+- [analog_sig_source_x_0, '0', blocks_multiply_conjugate_cc_0, '1']
+- [analog_sig_source_x_0, '0', blocks_multiply_conjugate_cc_0_0, '1']
+- [analog_sig_source_x_0, '0', blocks_multiply_conjugate_cc_0_0_0, '1']
+- [analog_sig_source_x_0, '0', blocks_multiply_conjugate_cc_0_0_0_0, '1']
+- [blocks_complex_to_arg_0, '0', blocks_keep_one_in_n_0, '0']
+- [blocks_complex_to_arg_0_0, '0', blocks_keep_one_in_n_0_0, '0']
+- [blocks_complex_to_arg_0_0_0, '0', blocks_keep_one_in_n_0_0_0, '0']
+- [blocks_complex_to_arg_0_0_0_0, '0', blocks_keep_one_in_n_0_0_0_0, '0']
+- [blocks_file_source_0, '0', satellites_rms_agc_0, '0']
+- [blocks_file_source_0_0, '0', satellites_rms_agc_0_0, '0']
+- [blocks_file_source_0_0_0, '0', satellites_rms_agc_0_0_0, '0']
+- [blocks_file_source_0_0_0_0, '0', satellites_rms_agc_0_0_0_0, '0']
+- [blocks_keep_one_in_n_0, '0', blocks_file_sink_1, '0']
+- [blocks_keep_one_in_n_0_0, '0', blocks_file_sink_1_0, '0']
+- [blocks_keep_one_in_n_0_0_0, '0', blocks_file_sink_1_0_0, '0']
+- [blocks_keep_one_in_n_0_0_0_0, '0', blocks_file_sink_1_0_0_0, '0']
+- [blocks_multiply_conjugate_cc_0, '0', analog_pll_refout_cc_0, '0']
+- [blocks_multiply_conjugate_cc_0_0, '0', analog_pll_refout_cc_0_0, '0']
+- [blocks_multiply_conjugate_cc_0_0_0, '0', analog_pll_refout_cc_0_0_0, '0']
+- [blocks_multiply_conjugate_cc_0_0_0_0, '0', analog_pll_refout_cc_0_0_0_0, '0']
+- [satellites_rms_agc_0, '0', blocks_multiply_conjugate_cc_0, '0']
+- [satellites_rms_agc_0_0, '0', blocks_multiply_conjugate_cc_0_0, '0']
+- [satellites_rms_agc_0_0_0, '0', blocks_multiply_conjugate_cc_0_0_0, '0']
+- [satellites_rms_agc_0_0_0_0, '0', blocks_multiply_conjugate_cc_0_0_0_0, '0']
+
+metadata:
+  file_format: 1
