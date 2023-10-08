@@ -1,0 +1,83 @@
+ 
+ 
+TO:  OSIRIS-REx Operations Personnel
+ 
+SUBJECT:  NAV DELIVERY OF PRELIM MPF FOR OSIRIS-REx TCM12
+ 
+********************************************************************************************
+ 
+THE MPF IS LOCATED ON THE FOB IN THE FOLLOWING DIRECTORY: ORXFOB/FDS/MPF
+ 
+orx_mpf_tcm12_prelim_od368_v1.xml
+ 
+THE SPICE BINARY FILE IS LOCATED ON THE FOB IN THE FOLLOWING DIRECTORY: ORXFOB/FDS/SPK
+ 
+orx_230117_231101_230911_od368-N-TCM12-P-DB1_v0.bsp
+ 
+          *** Updated SPK Below***
+orx_230117_231101_230911_od368-N-TCM12-P-DB1_v1.bsp
+ 
+ 
+ 
+THE ENTRY STATE FILES ARE LOCATED ON THE FOB IN THE FOLLOWING DIRECTORY: ORXFOB/FDS/ESF
+ 
+orx_esf_230911_OD368_CBE_NoBurn_1hrdelay_v1.txt
+orx_esf_230911_OD368_CBE_NoBurn_v1.txt
+orx_esf_230911_OD368_SingleState_TCM12_v1.txt
+orx_esf_230911_OD368_CBE_TCM12_v1.txt
+orx_esf_230911_OD368_CBE_TCM12_1hrdelay_v1.txt
+ 
+********************************************************************************************
+ 
+ 
+BRIEF -- Version 4.0.0, September 8, 2010 -- Toolkit Version N0066
+ 
+ 
+Summary for: orx_230117_231101_230911_od368-N-TCM12-P-DB1_v1.bsp
+ 
+Body: OSIRIS-REX (-64)
+      Start of Interval (ET)              End of Interval (ET)
+      -----------------------------       -----------------------------
+      2023 JAN 17 00:00:00.000            2023 NOV 01 00:00:00.000
+ 
+Body: -64090
+      Start of Interval (ET)              End of Interval (ET)
+      -----------------------------       -----------------------------
+      2023 JAN 17 00:00:00.000            2023 SEP 24 14:56:25.950
+ 
+ 
+ 
+Tracking data span used in this solution:
+ 
+Data Start: 19-JAN-2023 05:39:31
+Data End:   11-SEP-2023 13:47:14
+ 
+Burn Time:  17-SEP-2023 17:00:00.0000 UTC
+DeltaV:     0.238 cm/s
+ 
+ 
+Comments:
+ 
+The delivered MPF contains the prelim design of the TCM12 maneuver. The delivered trajectory file contains TCM12, and DB1 in the trajectory propagation.
+The maneuver design was based on the spacecraft orbit solution OD368 and planetary ephemeris file DE424.
+ 
+ 
+If you have any questions about this delivery, please don't hesitate to contact me via email and/or phone call.
+ 
+Internal Accounting:
+ 
+The delivered files can be found on zion at:
+ 
+/nav/orex/deliveries/mnvr/tcm12/prelim
+ 
+ 
+ 
+BRIEF -- Version 3.0.0, January 14, 2008 -- Toolkit Version N0064
+ 
+ 
+Summary for: orx_230117_231101_230911_od368-N-TCM12-P-DB1_v1.bsp
+ 
+Bodies  Start of Interval (ET)          End of Interval (ET)
+------- -----------------------------   -----------------------------
+-64     2023 JAN 17 00:00:00.000        2023 NOV 01 00:00:00.000
+-64090  2023 JAN 17 00:00:00.000        2023 SEP 24 14:56:25.950
