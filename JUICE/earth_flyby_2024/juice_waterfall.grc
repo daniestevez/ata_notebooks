@@ -1,0 +1,453 @@
+options:
+  parameters:
+    author: Daniel Estevez
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: no_gui
+    hier_block_src_path: '.:'
+    id: juice_waterfall
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: run
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: JUICE waterfall
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: dec
+  id: variable
+  parameters:
+    comment: ''
+    value: round(t_int * samp_rate / nfft)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1128, 4.0]
+    rotation: 0
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: 6.144e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1016, 12.0]
+    rotation: 0
+    state: enabled
+- name: t_int
+  id: variable
+  parameters:
+    comment: ''
+    value: '10'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [912, 12.0]
+    rotation: 0
+    state: enabled
+- name: window_function
+  id: variable
+  parameters:
+    comment: ''
+    value: fft.window.blackman(nfft)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [720, 12.0]
+    rotation: 0
+    state: true
+- name: basename
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: Base name for the input/output files (does not include the antenna or polarization)
+    short_id: ''
+    type: str
+    value: ''''''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [264, 12.0]
+    rotation: 0
+    state: true
+- name: blocks_complex_to_mag_squared_0
+  id: blocks_complex_to_mag_squared
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: nfft
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [872, 100.0]
+    rotation: 0
+    state: true
+- name: blocks_complex_to_mag_squared_0_0
+  id: blocks_complex_to_mag_squared
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: nfft
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [880, 308.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: f'{basename}_fft{nfft}_dec{dec}_0x0x.f32'
+    type: float
+    unbuffered: 'False'
+    vlen: nfft
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1296, 76.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_0_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: f'{basename}_fft{nfft}_dec{dec}_0y0y.f32'
+    type: float
+    unbuffered: 'False'
+    vlen: nfft
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1296, 284.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_0_1
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: f'{basename}_fft{nfft}_dec{dec}_0x0y.c64'
+    type: complex
+    unbuffered: 'False'
+    vlen: nfft
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1296, 180.0]
+    rotation: 0
+    state: true
+- name: blocks_file_source_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: f'{basename}_0x'
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'False'
+    type: short
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [16, 124.0]
+    rotation: 0
+    state: true
+- name: blocks_file_source_0_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: f'{basename}_0y'
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'False'
+    type: short
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [16, 236.0]
+    rotation: 0
+    state: true
+- name: blocks_integrate_xx_0
+  id: blocks_integrate_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    decim: dec
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: nfft
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1072, 92.0]
+    rotation: 0
+    state: true
+- name: blocks_integrate_xx_0_0
+  id: blocks_integrate_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    decim: dec
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: nfft
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1072, 300.0]
+    rotation: 0
+    state: true
+- name: blocks_integrate_xx_0_1
+  id: blocks_integrate_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    decim: dec
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: complex
+    vlen: nfft
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1072, 196.0]
+    rotation: 0
+    state: true
+- name: blocks_interleaved_short_to_complex_0
+  id: blocks_interleaved_short_to_complex
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale_factor: 2**15
+    swap: 'False'
+    vector_input: 'False'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [224, 148.0]
+    rotation: 0
+    state: true
+- name: blocks_interleaved_short_to_complex_0_0
+  id: blocks_interleaved_short_to_complex
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale_factor: 2**15
+    swap: 'False'
+    vector_input: 'False'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [224, 260.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_conjugate_cc_0
+  id: blocks_multiply_conjugate_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: nfft
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [880, 192.0]
+    rotation: 0
+    state: true
+- name: blocks_stream_to_vector_0
+  id: blocks_stream_to_vector
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_items: nfft
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [408, 160.0]
+    rotation: 0
+    state: true
+- name: blocks_stream_to_vector_0_0
+  id: blocks_stream_to_vector
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_items: nfft
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [408, 272.0]
+    rotation: 0
+    state: true
+- name: fft_vxx_0
+  id: fft_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fft_size: nfft
+    forward: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nthreads: '1'
+    shift: 'True'
+    type: complex
+    window: window_function
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [576, 124.0]
+    rotation: 0
+    state: true
+- name: fft_vxx_0_0
+  id: fft_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fft_size: nfft
+    forward: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nthreads: '1'
+    shift: 'True'
+    type: complex
+    window: window_function
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [576, 236.0]
+    rotation: 0
+    state: true
+- name: nfft
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: ''
+    type: intx
+    value: 2**16
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [480, 12.0]
+    rotation: 0
+    state: true
+
+connections:
+- [blocks_complex_to_mag_squared_0, '0', blocks_integrate_xx_0, '0']
+- [blocks_complex_to_mag_squared_0_0, '0', blocks_integrate_xx_0_0, '0']
+- [blocks_file_source_0, '0', blocks_interleaved_short_to_complex_0, '0']
+- [blocks_file_source_0_0, '0', blocks_interleaved_short_to_complex_0_0, '0']
+- [blocks_integrate_xx_0, '0', blocks_file_sink_0, '0']
+- [blocks_integrate_xx_0_0, '0', blocks_file_sink_0_0, '0']
+- [blocks_integrate_xx_0_1, '0', blocks_file_sink_0_1, '0']
+- [blocks_interleaved_short_to_complex_0, '0', blocks_stream_to_vector_0, '0']
+- [blocks_interleaved_short_to_complex_0_0, '0', blocks_stream_to_vector_0_0, '0']
+- [blocks_multiply_conjugate_cc_0, '0', blocks_integrate_xx_0_1, '0']
+- [blocks_stream_to_vector_0, '0', fft_vxx_0, '0']
+- [blocks_stream_to_vector_0_0, '0', fft_vxx_0_0, '0']
+- [fft_vxx_0, '0', blocks_complex_to_mag_squared_0, '0']
+- [fft_vxx_0, '0', blocks_multiply_conjugate_cc_0, '0']
+- [fft_vxx_0_0, '0', blocks_complex_to_mag_squared_0_0, '0']
+- [fft_vxx_0_0, '0', blocks_multiply_conjugate_cc_0, '1']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.10.0
